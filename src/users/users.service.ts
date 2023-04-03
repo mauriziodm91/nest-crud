@@ -15,7 +15,7 @@ export class UsersService {
   }
 
   async findOne(id: number): Promise<User> {
-    return this.userRepository.findOne({ where: id });
+    return this.userRepository.findOne({ where: { id } });
   }
 
   async create(user: Partial<User>): Promise<User> {
@@ -25,7 +25,7 @@ export class UsersService {
 
   async update(id: number, user: Partial<User>): Promise<User> {
     await this.userRepository.update(id, user);
-    return this.userRepository.findOne({ where: id });
+    return this.userRepository.findOne({ where: { id } });
   }
 
   async delete(id: number): Promise<void> {
